@@ -18,7 +18,8 @@ class Company extends Model
         'password',
     ];
 
-    public function employees() {
-        $this->hasMany(User::class, 'company_id');
+    public function users()
+    {
+        return $this->hasMany(User::class);
     }
 }

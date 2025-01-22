@@ -27,7 +27,10 @@ class StoreCompanyRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:companies,email',
-            'phone_number' => 'required',
+            'phone_number' => 'required|regex:/^[0-9]+$/',
+            'manager_name' => 'required|string|max:255',
+            'manager_email' => 'required|email|unique:users,email',
+            'manager_password' => 'required|string|min:6',
         ];
     }
 }

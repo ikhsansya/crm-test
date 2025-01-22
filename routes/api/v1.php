@@ -21,7 +21,8 @@ Route::prefix('v1')->group(function () {
 
         // Manager and Employee routes
         Route::middleware(['role:manager|employee'])->group(function () {
-            Route::get('user', [UserController::class, 'index'])->name('users');
+            Route::get('user', [UserController::class, 'index'])->name('user.index');
+            Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
         });
     });
 });
